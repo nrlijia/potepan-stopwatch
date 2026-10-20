@@ -15,7 +15,7 @@ function updateDisplay() {
   const hours = Math.floor(elapsedTime / 3600000);
   const minutes = Math.floor((elapsedTime % 3600000) / 60000);
   const seconds = Math.floor((elapsedTime % 60000) / 1000);
-  const milliseconds = Math.floor((elapsedTime % 100) / 10);
+  const milliseconds = Math.floor((elapsedTime % 1000) / 100);
 
   display.textContent =
     `${hours}:${minutes}:${seconds}:${milliseconds}`;
@@ -30,9 +30,9 @@ startBtn.addEventListener("click", function() {
 
  
 timerId = setInterval(function() {
-  elapsedTime = elapsedTime + 10;
+  elapsedTime = elapsedTime + 100;
   updateDisplay();
-}, 10);
+}, 100);
 
 
   // ボタンの状態を変更する
